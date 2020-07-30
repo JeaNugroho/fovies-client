@@ -1,0 +1,8 @@
+.NotFound {
+  padding-top: 2rem;
+  text-align: center;
+}
+
+.NotFound .notfound-img {
+    height: 14rem;
+}
