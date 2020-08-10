@@ -10,3 +10,8 @@
   background-color: #F7F7F7;
   border: 2px solid #EAEAEA;
 }
+
+.App .user-avatar {
+  width: 2rem;
+  height: auto;
+}

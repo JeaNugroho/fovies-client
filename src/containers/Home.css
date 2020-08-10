@@ -19,3 +19,23 @@
 /* .Home .lander p {
   color: #999;
 } */
+
+.Home .videos h4 {
+  overflow: hidden;
+  line-height: 1.5;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.Home .videos p {
+  color: #666;
+}
+
+.Home .videos .poster {
+  width: 8rem;
+  height: auto;
+}
+
+.Home .videos .avatar {
+  width: 1.5rem;
+}

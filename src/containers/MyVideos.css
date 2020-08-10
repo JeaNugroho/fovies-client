@@ -1,0 +1,19 @@
+.MyVideos .videos h4 {
+  overflow: hidden;
+  line-height: 1.5;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.MyVideos .videos p {
+  color: #666;
+}
+
+.MyVideos .videos .poster {
+  width: 8rem;
+  height: auto;
+}
+
+.MyVideos .videos .avatar {
+  width: 1.5rem;
+}

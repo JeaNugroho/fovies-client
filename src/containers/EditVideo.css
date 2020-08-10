@@ -1,0 +1,21 @@
+.EditVideo Form {
+  padding-bottom: 15px;
+}
+
+.EditVideo Form textarea {
+  height: 300px;
+  font-size: 18px;
+}
+
+/* .EditVideo hr {
+  display: inline-block;
+} */
+
+.EditVideo .poster {
+  width: 8rem;
+  height: auto;
+}
+
+.EditVideo a:hover {
+  text-decoration: none;
+}
