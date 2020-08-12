@@ -1,10 +1,9 @@
 import React, { useRef, useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
-import { useFormFields } from "../libs/hooksLib";
-import { API, Storage } from "aws-amplify";
+import { API } from "aws-amplify";
 import { onError } from "../libs/errorLib";
 import LoaderButton from "../components/LoaderButton";
-import { Form, FormControl, FormGroup } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import config from "../config";
 import "./EditVideo.css";
 import { s3Download, s3Upload, s3Delete } from "../libs/awsLib";
@@ -31,7 +30,7 @@ export default function EditVideo() {
         const { title, description, movieKey, posterUrl } = video;
 
         // video.movie = await Storage.vault.get(movieKey);
-        video.movie = await s3Download(video.movieKey);
+        video.movie = await s3Download(movieKey);
         // video.poster = await Storage.vault.get(posterKey);
 
         setVideo(video);
@@ -172,13 +171,13 @@ export default function EditVideo() {
               <source src={ video.movie } type="video/mp4" />
               <source src={ video.movie } type="video/webm" />
               <source src={ video.movie } type="video/ogg" />
-              <p className="vjs-no-js">
+              {/* <p className="vjs-no-js">
                 To view this video please enable JavaScript, and consider upgrading to a
                 web browser that
                 <a href="https://videojs.com/html5-video-support/" target="_blank">
                   supports HTML5 video
                 </a>
-              </p>
+              </p> */}
             </video>
             <script src="https://vjs.zencdn.net/7.8.4/video.js"></script>
           </Form.Group>

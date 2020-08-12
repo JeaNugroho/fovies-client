@@ -1,21 +1,17 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useFormFields } from "../libs/hooksLib";
 import { Form } from "react-bootstrap";
 import LoaderButton from "../components/LoaderButton";
-// import { useAppContext } from "../libs/contextLib";
 import { onError } from "../libs/errorLib";
 import config from "../config";
 import "./NewVideo.css";
 import { API } from "aws-amplify";
-import { s3Upload, s3Download } from "../libs/awsLib";
+import { s3Upload } from "../libs/awsLib";
 
 export default function NewVideo() {
-  // const { thisUserGravatar } = useAppContext();
   const movie = useRef(null);
   const [movieFilled, setMovie] = useState(false);
-  // const poster = useRef(null);
-  // const [posterFilled, setPoster] = useState(false);
   const history = useHistory();
   const [fields, handleFieldChange] = useFormFields({
     title: "",
@@ -23,10 +19,6 @@ export default function NewVideo() {
     posterUrl: ""
   });
   const [isLoading, setIsLoading] = useState(false);
-
-  // useEffect(() => {
-  //   console.log(thisUserGravatar);
-  // }, []);
 
   function validateForm() {
     return fields.title.length > 0 && fields.description.length > 0 && fields.posterUrl.length > 0 && movieFilled;
@@ -36,11 +28,6 @@ export default function NewVideo() {
     movie.current = event.target.files[0];
     setMovie(true);
   }
-
-  // function handlePosterChange(event) {
-  //   poster.current = event.target.files[0];
-  //   setPoster(true);
-  // }
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -58,8 +45,6 @@ export default function NewVideo() {
 
     try {
       const movieKey = await s3Upload(movie.current);
-      // const posterKey = await s3Upload(poster.current);
-      // const posterUrl = await s3Download(posterKey);
 
       const title = fields.title;
       const description = fields.description;
@@ -95,10 +80,6 @@ export default function NewVideo() {
             onChange={ handleFieldChange }
           />
         </Form.Group>
-        {/* <Form.Group>
-          <Form.Label><strong>Poster</strong></Form.Label>
-          <Form.Control onChange={ handlePosterChange } type="file" />
-        </Form.Group> */}
         <Form.Group>
           <Form.Control
             name="title"

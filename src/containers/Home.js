@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { PageHeader, ListGroup, ListGroupItem, Media } from "react-bootstrap";
-import { LinkContainer, Link } from "react-router-bootstrap";
-import { API, Storage } from "aws-amplify";
+import { ListGroup, Media } from "react-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
+import { API } from "aws-amplify";
 import { useAppContext } from "../libs/contextLib";
 import { onError } from "../libs/errorLib";
 import brandPic from "../fovies_pic_logo-removebg-preview.png";
 import brandName from "../fovies_name_logo-removebg-preview.png";
 import "./Home.css";
-import { s3Download } from "../libs/awsLib";
 
 const Home = () => {
     const [videos, setVideos] = useState([]);
@@ -77,11 +76,9 @@ const Home = () => {
             <div className="videos pt-5 mb-5">
                 <h1>All Movies</h1>
                 <hr />
-                {/* <ul className="list-unstyled"> */}
                 <ListGroup>
                     { !isLoading && renderVideosList(videos) }
                 </ListGroup>
-                {/* </ul> */}
             </div>
         );
     }
