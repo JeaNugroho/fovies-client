@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import { Form } from "react-bootstrap";
 import { Auth } from "aws-amplify";
 import gravatar from "gravatar";
@@ -10,7 +10,7 @@ import { onError } from "../libs/errorLib";
 import "./Login.css";
 
 const Login = () => {
-  const history = useHistory();
+  // const history = useHistory();
   const { userHasAuthenticated } = useAppContext();
   const [isLoading, setIsLoading] = useState(false);
   const [fields, handleFieldChange] = useFormFields({
@@ -39,7 +39,7 @@ const Login = () => {
 
         userHasAuthenticated(true);
 
-        history.push("/");
+        // history.push("/");
     } catch (error) {
         onError(error);
         setIsLoading(false);

@@ -7,7 +7,7 @@ export async function s3Upload(file) {
 
   const stored = await Storage.put(filename, file, {
     contentType: file.type,
-    level: "protected"
+    level: "public"
   });
   console.log("s3Upload");
 
@@ -15,15 +15,11 @@ export async function s3Upload(file) {
 }
 
 export async function s3Download(filename) {
-  const file = await Storage.get(filename, {
-    level: "protected"
-  });
+  const file = await Storage.get(filename);
 
   return file;
 }
 
 export async function s3Delete(filename) {
-  await Storage.remove(filename, {
-    level: "protected"
-  });
+  await Storage.remove(filename);
 }

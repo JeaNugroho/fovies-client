@@ -1,4 +1,8 @@
 .WatchVideo video {
-    width: 100%;
-    height: auto;
+    height: 50vh;
+    width: auto;
+}
+
+.WatchVideo p {
+    white-space: pre-wrap;
 }

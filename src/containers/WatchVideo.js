@@ -3,6 +3,7 @@ import { onError } from "../libs/errorLib";
 import { API } from "aws-amplify";
 import { useParams } from "react-router-dom";
 import { s3Download } from "../libs/awsLib";
+import "./WatchVideo.css";
 
 export default function WatchVideo() {
     const { id } = useParams();
@@ -18,11 +19,8 @@ export default function WatchVideo() {
             try {
                 const video = await loadVideo();
 
-                // video.movie = await s3Download(video.movieKey);
-                // console.log(JSON.stringify(video));
                 const movie = await s3Download(video.movieKey);
                 setMovie(movie);
-                console.log(movie);
 
                 setVideo(video);
             } catch (error) {
@@ -37,12 +35,10 @@ export default function WatchVideo() {
         ( video && <div className="WatchVideo pt-4">
             <video
               id="my-video"
-              className="video-js"
+              className="video-js mx-auto mb-4"
               controls
               preload="auto"
-            //   width="640"
-            //   height="264"
-              // poster="MY_VIDEO_POSTER.jpg"
+              poster={ video.posterUrl }
               data-setup="{}"
             >
               <source src={ movie } type="video/mp4" />
@@ -57,6 +53,9 @@ export default function WatchVideo() {
               </p>
             </video>
             <script src="https://vjs.zencdn.net/7.8.4/video.js"></script>
+
+            <h4>{ video.title }</h4>
+            <p>{ video.description }</p>
         </div>)
     );
 }
