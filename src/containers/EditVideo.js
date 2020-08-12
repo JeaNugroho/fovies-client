@@ -171,13 +171,6 @@ export default function EditVideo() {
               <source src={ video.movie } type="video/mp4" />
               <source src={ video.movie } type="video/webm" />
               <source src={ video.movie } type="video/ogg" />
-              {/* <p className="vjs-no-js">
-                To view this video please enable JavaScript, and consider upgrading to a
-                web browser that
-                <a href="https://videojs.com/html5-video-support/" target="_blank">
-                  supports HTML5 video
-                </a>
-              </p> */}
             </video>
             <script src="https://vjs.zencdn.net/7.8.4/video.js"></script>
           </Form.Group>
