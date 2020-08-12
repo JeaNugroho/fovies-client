@@ -1,8 +1,15 @@
-.WatchVideo video {
-    height: 50vh;
-    width: 50vh;
+@media all and (min-width: 480px) {
+    .WatchVideo video {
+        height: 50vh;
+        width: 50vh;
+    }
+    
+    .WatchVideo p {
+        white-space: pre-wrap;
+    }
 }
 
-.WatchVideo p {
-    white-space: pre-wrap;
+.WatchVideo video {
+    width: 100vh;
+    height: 50vh;
 }
