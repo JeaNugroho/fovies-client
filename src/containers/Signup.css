@@ -9,8 +9,14 @@
   }
 }
 
-.Signup Form span.help-block {
+/* .Signup Form span.help-block {
   font-size: 14px;
-  padding-bottom: 10px;
+  padding: 10px 0;
+  color: #999;
+} */
+
+.Signup Form {
+  font-size: 14px;
+  padding: 2rem 0;
   color: #999;
 }

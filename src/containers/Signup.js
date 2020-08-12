@@ -110,6 +110,9 @@ export default function Signup() {
             value={fields.email}
             onChange={handleFieldChange}
           />
+          <Form.Text className="text-muted">
+            Profile picture will be taken from this email's Gravatar.
+          </Form.Text>
         </Form.Group>
         <Form.Group>
           <Form.Label><strong>Password</strong></Form.Label>

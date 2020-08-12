@@ -8,3 +8,9 @@
     max-width: 320px;
   }
 }
+
+.Login Form {
+  font-size: 14px;
+  padding: 2rem 0;
+  color: #999;
+}
